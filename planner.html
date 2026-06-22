@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Planner</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="planner.html" class="active">Academic Planner</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Interactive Academic Planner</h2>
+        <section id="planner-container">
+            <div class="input-group">
+                <input type="text" id="task-input" placeholder="Enter a new academic task...">
+                <button id="add-task-btn">Add Task</button>
+            </div>
+            
+            <ul id="task-list">
+                <li>
+                    <input type="checkbox" id="course-1">
+                    <label for="course-1">COS 101: Introduction to Computer Science</label>
+                </li>
+                    <input type="checkbox" id="course-2">
+                    <label for="course-2">MTH 101: Elementary Mathematics I</label>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy 2026 [Adimkpayah Favour Amarachi]. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JS linked at the bottom so elements are loaded first -->
+    <script src="js/script.js"></script>
+</body>
+</html>

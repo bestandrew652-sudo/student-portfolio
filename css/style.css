@@ -1,0 +1,324 @@
+/* ==========================================================================
+   1. GLOBAL STYLES & VARIABLES
+   ========================================================================== */
+:root {
+    --primary-color: #2b579a;    /* Professional Slate Blue */
+    --accent-color: #00a2ed;     /* Electric Blue for links/hovers */
+    --dark-color: #2d2d2d;       /* Charcoal for clean text */
+    --light-bg: #f4f6f9;         /* Off-white page background */
+    --white: #ffffff;
+    --error-color: #d9534f;      /* Red for error text */
+    --success-color: #5cb85c;    /* Green for success */
+    --transition-speed: 0.3s;    /* Animation speed */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--dark-color);
+    background-color: var(--light-bg);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+/* ==========================================================================
+   2. NAVIGATION BAR (FLEXBOX REQUIREMENT)
+   ========================================================================== */
+header {
+    background-color: var(--primary-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav ul li a {
+    display: block;
+    padding: 20px 25px;
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    /* Transition animation requirement */
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+nav ul li a:hover, 
+nav ul li a.active {
+    background-color: var(--white);
+    color: var(--primary-color);
+}
+
+/* ==========================================================================
+   3. COMPONENTS & GENERAL LAYOUTS
+   ========================================================================== */
+section {
+    background: var(--white);
+    padding: 30px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+h1, h2, h3 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+p {
+    margin-bottom: 15px;
+}
+
+/* Buttons global transition styling */
+button, .btn {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border: none;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color var(--transition-speed) ease;
+}
+
+button:hover {
+    background-color: var(--accent-color);
+}
+
+/* ==========================================================================
+   4. PAGE-SPECIFIC STYLE MODIFICATIONS
+   ========================================================================== */
+
+/* Homepage Profile Picture Layout */
+#hero {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+#profile-pic {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary-color);
+    margin-bottom: 20px;
+}
+
+/* About Me Table Layout Requirement */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: var(--primary-color);
+    color: var(--white);
+}
+
+/* Projects Page Layout (CSS GRID REQUIREMENT) */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.project-card {
+    background: var(--white);
+    border: 1px solid #e1e8ed;
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-card img, .project-card video {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin: 15px 0;
+}
+
+/* Planner Layout */
+.input-group {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.input-group input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+#task-list {
+    list-style: none;
+}
+
+#task-list li {
+    background: var(--light-bg);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 5px solid var(--primary-color);
+}
+
+#task-list li.completed span.task-checkbox + label{
+    text-decoration: line-through;
+    color: #888888;
+}
+
+#task-list li span {
+    cursor: pointer;
+    flex: 1;
+    font-weight: 500;
+}
+
+.delete-btn {
+    background-color: var(--error-color);
+    padding: 6px 12px;
+    font-size: 0.85rem;
+}
+
+.delete-btn:hover {
+    background-color: #c9302c;
+}
+
+/* Contact Form Layout */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-family: inherit;
+}
+
+/* ==========================================================================
+   5. FOOTER STYLING
+   ========================================================================== */
+footer {
+    background-color: #1a1a1a;
+    color: #aeaeae;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+    margin-top: auto;
+}
+
+/* ==========================================================================
+   6. RESPONSIVE DESIGN (MEDIA QUERIES REQUIREMENT)
+   ========================================================================== */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    nav ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    nav ul li a {
+        padding: 15px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    main {
+        padding: 20px 15px;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+    
+    button, .btn {
+        width: 100%;
+    }
+}
+
+/*Remove default ugly bullet points from task list container*/
+#task-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+/*Align checkbox, text, and delete button nicely in a row */
+.task-item-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Forces text to the left, button to the right */
+    background:#fdfdfd;
+    padding: 12px 20px;
+    margin-bottom: 10px;
+    border-left: 4px solid #1a365d;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    box-sizing: border-box;
+
+}
+/*Clean styling for the delete button on each task item*/
+.delete-task-btn {
+    background-color: #701a21;
+    color: var(--white);
+    border: none;
+    padding: 6px 12px;
+    font-size: 14px;
+    white-space: nowrap; /* Prevents button from wrapping to multiple lines */
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.delete-task-btn:hover {
+    background-color: #653135;
+}
