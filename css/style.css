@@ -322,3 +322,15 @@ footer {
 .delete-task-btn:hover {
     background-color: #653135;
 }
+
+/*Standard passport size proportions*/
+.passport-photo {
+    width: 150px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover; /*prevents streching, crops cleanly if needed*/
+    border: 2px solid #1a365d; /*neat professional border for passport photo*/
+    border-radius: 4px; /*Crisp, slightly round3d coners instead of a circle*/
+    display: block;
+    margin: 0 auto 15px auto; /*centers the image and adds spacing below*/;
+}
