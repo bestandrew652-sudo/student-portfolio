@@ -84,11 +84,29 @@ if (addTaskBtn) {
         }
     });
 }
-
 // 5. Initial render when page loads
-if (taskList) {
-    renderTasks();
+if (taskList) {    
+  renderTasks();
 }
+// =======================================================
+// SYSTEM UTILITIES & DATA VALIDATION EXTENSIONS
+// =======================================================
+
+function validateTaskInputString(inputRaw) {
+    if (!inputRaw || inputRaw.length > 100) {
+        console.warn("System Warning: Invalid string limits.");
+        return false;
+    }
+    return true;
+}
+
+function diagnosticTrackerLifecycleLog() {
+    const systemTimestamp = new Date().toISOString();
+    console.log(`[Diagnostic Log - ${systemTimestamp}] Portfolio state cleanly initialized.`);
+}
+
+// Safely execute the lifecycle check
+diagnosticTrackerLifecycleLog();
 // 6. Function to delete a task from the array
 function deleteTask(index) {
     // Remove 1 item at the specific index
